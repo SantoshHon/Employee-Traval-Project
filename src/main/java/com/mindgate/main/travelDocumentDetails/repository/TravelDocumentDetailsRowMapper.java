@@ -1,0 +1,27 @@
+package com.mindgate.main.travelDocumentDetails.repository;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.mindgate.main.travelDocumentDetails.pojo.TravelDocumentDetails;
+
+public class TravelDocumentDetailsRowMapper implements RowMapper<TravelDocumentDetails> {
+
+	@Override
+	public TravelDocumentDetails mapRow(ResultSet resultSet, int i) throws SQLException {
+		 int documentId=resultSet.getInt("DOCUMENT_ID");
+		 String documentType=resultSet.getString("DOCUMENT_TYPE ");
+         String documentName=resultSet.getString("DOCUMENT_NAME");
+		 byte[] documentFile=resultSet.getBytes("DOCUMENT_FILE ");
+		 
+		 TravelDocumentDetails documentDetails=new TravelDocumentDetails(documentId, documentType, documentName, documentFile);
+		return null;
+	}
+	
+	
+	
+	
+
+}
